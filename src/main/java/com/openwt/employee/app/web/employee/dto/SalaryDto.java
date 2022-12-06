@@ -1,4 +1,4 @@
-package com.openwt.employee.app.web.employee;
+package com.openwt.employee.app.web.employee.dto;
 
 import lombok.Getter;
 import lombok.Setter;

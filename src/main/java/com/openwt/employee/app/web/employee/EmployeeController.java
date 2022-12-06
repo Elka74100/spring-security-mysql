@@ -1,6 +1,8 @@
 package com.openwt.employee.app.web.employee;
 
 import com.openwt.employee.app.service.employee.EmployeeService;
+import com.openwt.employee.app.web.employee.dto.EmployeeDetailedDto;
+import com.openwt.employee.app.web.employee.dto.EmployeeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +18,8 @@ public class EmployeeController {
 
     @GetMapping()
     public List<EmployeeDto> getEmployees(@RequestParam(defaultValue = "0") Integer pageNo,
-                                       @RequestParam(defaultValue = "10") Integer pageSize,
-                                       @RequestParam(defaultValue = "empNo") String sortBy) {
+                                          @RequestParam(defaultValue = "10") Integer pageSize,
+                                          @RequestParam(defaultValue = "empNo") String sortBy) {
         return mapper.toDto(employeeService.getEmployees(pageNo, pageSize, sortBy));
     }
 
