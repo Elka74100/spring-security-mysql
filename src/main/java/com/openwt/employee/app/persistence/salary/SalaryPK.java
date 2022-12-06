@@ -3,7 +3,6 @@ package com.openwt.employee.app.persistence.salary;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
 
-
 import java.io.Serializable;
 import java.util.Date;
 @Embeddable
