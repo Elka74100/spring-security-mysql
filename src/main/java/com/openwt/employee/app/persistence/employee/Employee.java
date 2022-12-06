@@ -1,10 +1,13 @@
 package com.openwt.employee.app.persistence.employee;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.openwt.employee.app.persistence.salary.Salary;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,4 +22,7 @@ public class Employee {
     private String lastName;
     private String gender;
     private Date hireDate;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "employee")
+    private List<Salary> salaries;
 }
