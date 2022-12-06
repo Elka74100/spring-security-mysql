@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class EmployeeDto {
+public class EmployeeDetailedDto {
     private Date birthDate;
     private String firstName;
     private String lastName;

@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface EmployeeMapper {
     List<EmployeeDto> toDto(List<Employee> employee);
+    EmployeeDetailedDto toDto(Employee employee);
 }

@@ -27,4 +27,8 @@ public class EmployeeService {
             return new ArrayList<>();
         }
     }
+
+    public Employee getEmployee(Long empNo) {
+        return employeeRepository.findByEmpNo(empNo);
+    }
 }
