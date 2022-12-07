@@ -1,7 +1,9 @@
 package com.openwt.employee.app.web.employee;
 
+import com.openwt.employee.app.persistence.departement.CurrentDepartmentEmployee;
 import com.openwt.employee.app.persistence.employee.Employee;
 import com.openwt.employee.app.persistence.salary.Salary;
+import com.openwt.employee.app.web.employee.dto.CurrentDepartmentEmployeeDto;
 import com.openwt.employee.app.web.employee.dto.EmployeeDetailedDto;
 import com.openwt.employee.app.web.employee.dto.EmployeeDto;
 import com.openwt.employee.app.web.employee.dto.SalaryDto;
@@ -16,4 +18,6 @@ public interface EmployeeMapper {
     EmployeeDetailedDto toDto(Employee employee);
     @Mapping(target="fromDate", source="salaryPK.fromDate")
     SalaryDto toDto(Salary salary);
+    @Mapping(target="deptNo", source="departmentPK.deptNo")
+    CurrentDepartmentEmployeeDto toDto(CurrentDepartmentEmployee currentDepartmentEmployee);
 }
