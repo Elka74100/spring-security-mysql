@@ -21,7 +21,7 @@ public class EmployeeService {
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
         Page<Employee> pagedResult = employeeRepository.findAll(paging);
 
-        if(pagedResult.hasContent()) {
+        if (pagedResult.hasContent()) {
             return pagedResult.getContent();
         } else {
             return new ArrayList<>();
@@ -30,5 +30,9 @@ public class EmployeeService {
 
     public Employee getEmployee(Long empNo) {
         return employeeRepository.findByEmpNo(empNo);
+    }
+
+    public Double getAverageSalaryPerDepartment(String deptNo) {
+        return employeeRepository.findAverageSalaryPerDepartment(deptNo);
     }
 }

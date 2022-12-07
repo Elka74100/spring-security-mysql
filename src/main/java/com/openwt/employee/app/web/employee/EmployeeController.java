@@ -27,4 +27,9 @@ public class EmployeeController {
     public EmployeeDetailedDto getEmployee(@PathVariable final Long empNo) {
         return mapper.toDto(employeeService.getEmployee(empNo));
     }
+
+    @GetMapping("/department/{deptNo}/average-salary")
+    public Double getAverageSalaryPerDepartment(@PathVariable final String deptNo) {
+         return employeeService.getAverageSalaryPerDepartment(deptNo);
+    }
 }
