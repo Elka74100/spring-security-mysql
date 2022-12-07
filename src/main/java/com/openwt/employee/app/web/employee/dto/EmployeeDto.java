@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -14,5 +13,4 @@ public class EmployeeDto {
     private String lastName;
     private String gender;
     private Date hireDate;
-    private List<SalaryDto> salaries;
 }
