@@ -1,11 +1,11 @@
 package com.openwt.employee.persistence.employee;
 
 import com.openwt.employee.persistence.departement.CurrentDepartmentEmployee;
-import com.openwt.employee.persistence.departement.DepartmentEmployee;
 import com.openwt.employee.persistence.salary.Salary;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Formula;
 
 import java.util.Date;
 import java.util.List;
@@ -27,4 +27,6 @@ public class Employee {
     private List<Salary> salaries;
     @OneToMany(mappedBy = "employee")
     private List<CurrentDepartmentEmployee> currentDepartments;
+    @Formula("(SELECT AVG(salaries.salary) FROM salaries INNER JOIN dept_emp ON salaries.emp_no = dept_emp.emp_no WHERE salaries.emp_no = emp_no)")
+    private Double averageSalary;
 }

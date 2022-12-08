@@ -13,4 +13,5 @@ public class EmployeeDto {
     private String lastName;
     private String gender;
     private Date hireDate;
+    private Double averageSalary;
 }
