@@ -1,7 +1,7 @@
 package com.openwt.employee.persistence.employee;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.openwt.employee.persistence.departement.CurrentDepartmentEmployee;
+import com.openwt.employee.persistence.departement.DepartmentEmployee;
 import com.openwt.employee.persistence.salary.Salary;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -23,9 +23,8 @@ public class Employee {
     private String lastName;
     private String gender;
     private Date hireDate;
-    @JsonManagedReference
     @OneToMany(mappedBy = "employee")
     private List<Salary> salaries;
     @OneToMany(mappedBy = "employee")
-    private List<CurrentDepartmentEmployee> currentDepartmentEmployee;
+    private List<CurrentDepartmentEmployee> currentDepartments;
 }

@@ -1,17 +1,16 @@
 package com.openwt.employee.persistence.employee;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Employee findByEmpNo(Long empNo);
-    @Query(
-            value = "SELECT AVG(salaries.salary) FROM salaries INNER JOIN dept_emp ON salaries.emp_no = dept_emp.emp_no WHERE dept_no = :deptNo",
-            nativeQuery = true
-    )
+    @Query("""
+            SELECT AVG(s.salary) FROM Salary s 
+            INNER JOIN DepartmentEmployee de ON s.salaryPK.empNo = de.departmentPK.empNo 
+            WHERE de.departmentPK.deptNo = ?1
+            """)
     Double findAverageSalaryPerDepartment(String deptNo);
-
-
 }

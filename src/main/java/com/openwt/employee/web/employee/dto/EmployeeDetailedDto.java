@@ -15,5 +15,5 @@ public class EmployeeDetailedDto {
     private String gender;
     private Date hireDate;
     private List<SalaryDto> salaries;
-    private List<CurrentDepartmentEmployeeDto> currentDepartmentEmployee;
+    private List<CurrentDepartmentEmployeeDto> currentDepartments;
 }
