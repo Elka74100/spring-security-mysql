@@ -1,4 +1,4 @@
-package com.openwt.employee.app.persistence.employee;
+package com.openwt.employee.persistence.employee;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -12,4 +12,6 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
             nativeQuery = true
     )
     Double findAverageSalaryPerDepartment(String deptNo);
+
+
 }

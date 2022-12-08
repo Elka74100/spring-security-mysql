@@ -1,8 +1,8 @@
-package com.openwt.employee.app.persistence.employee;
+package com.openwt.employee.persistence.employee;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.openwt.employee.app.persistence.departement.CurrentDepartmentEmployee;
-import com.openwt.employee.app.persistence.salary.Salary;
+import com.openwt.employee.persistence.departement.CurrentDepartmentEmployee;
+import com.openwt.employee.persistence.salary.Salary;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

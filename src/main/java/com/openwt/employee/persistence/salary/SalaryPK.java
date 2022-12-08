@@ -1,4 +1,4 @@
-package com.openwt.employee.app.persistence.salary;
+package com.openwt.employee.persistence.salary;
 
 import jakarta.persistence.Embeddable;
 import lombok.Getter;

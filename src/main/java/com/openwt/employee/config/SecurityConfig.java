@@ -1,4 +1,4 @@
-package com.openwt.employee.app.config;
+package com.openwt.employee.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

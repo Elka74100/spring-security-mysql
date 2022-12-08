@@ -1,7 +1,7 @@
-package com.openwt.employee.app.persistence.departement;
+package com.openwt.employee.persistence.departement;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.openwt.employee.app.persistence.employee.Employee;
+import com.openwt.employee.persistence.employee.Employee;
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.hibernate.annotations.Immutable;

@@ -1,4 +1,4 @@
-package com.openwt.employee.app.persistence.departement;
+package com.openwt.employee.persistence.departement;
 
 import jakarta.persistence.Embeddable;
 import lombok.Getter;

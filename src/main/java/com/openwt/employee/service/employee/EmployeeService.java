@@ -1,7 +1,7 @@
-package com.openwt.employee.app.service.employee;
+package com.openwt.employee.service.employee;
 
-import com.openwt.employee.app.persistence.employee.Employee;
-import com.openwt.employee.app.persistence.employee.EmployeeRepository;
+import com.openwt.employee.persistence.employee.Employee;
+import com.openwt.employee.persistence.employee.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

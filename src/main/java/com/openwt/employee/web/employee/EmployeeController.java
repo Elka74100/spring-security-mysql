@@ -1,8 +1,8 @@
-package com.openwt.employee.app.web.employee;
+package com.openwt.employee.web.employee;
 
-import com.openwt.employee.app.service.employee.EmployeeService;
-import com.openwt.employee.app.web.employee.dto.EmployeeDetailedDto;
-import com.openwt.employee.app.web.employee.dto.EmployeeDto;
+import com.openwt.employee.service.employee.EmployeeService;
+import com.openwt.employee.web.employee.dto.EmployeeDetailedDto;
+import com.openwt.employee.web.employee.dto.EmployeeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
