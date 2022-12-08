@@ -1,4 +1,4 @@
-package com.openwt.employee.web.employee;
+package com.openwt.employee.service.employee;
 
 import com.openwt.employee.persistence.departement.CurrentDepartmentEmployee;
 import com.openwt.employee.persistence.employee.Employee;

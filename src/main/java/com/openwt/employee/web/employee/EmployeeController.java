@@ -14,18 +14,17 @@ import java.util.List;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
-    private static final EmployeeMapper mapper = new EmployeeMapperImpl();
 
     @GetMapping()
     public List<EmployeeDto> getEmployees(@RequestParam(defaultValue = "0") Integer pageNo,
                                           @RequestParam(defaultValue = "10") Integer pageSize,
                                           @RequestParam(defaultValue = "empNo") String sortBy) {
-        return mapper.toDto(employeeService.getEmployees(pageNo, pageSize, sortBy));
+        return employeeService.getEmployees(pageNo, pageSize, sortBy);
     }
 
     @GetMapping("/{empNo}")
     public EmployeeDetailedDto getEmployee(@PathVariable final Long empNo) {
-        return mapper.toDto(employeeService.getEmployee(empNo));
+        return employeeService.getEmployee(empNo);
     }
 
     @GetMapping("/department/{deptNo}/average-salary")

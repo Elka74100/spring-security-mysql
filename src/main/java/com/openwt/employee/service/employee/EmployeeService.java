@@ -2,6 +2,8 @@ package com.openwt.employee.service.employee;
 
 import com.openwt.employee.persistence.employee.Employee;
 import com.openwt.employee.persistence.employee.EmployeeRepository;
+import com.openwt.employee.web.employee.dto.EmployeeDetailedDto;
+import com.openwt.employee.web.employee.dto.EmployeeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,20 +18,21 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
+    private static final EmployeeMapper mapper = new EmployeeMapperImpl();
 
-    public List<Employee> getEmployees(Integer pageNo, Integer pageSize, String sortBy) {
+    public List<EmployeeDto> getEmployees(Integer pageNo, Integer pageSize, String sortBy) {
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
         Page<Employee> pagedResult = employeeRepository.findAll(paging);
 
         if (pagedResult.hasContent()) {
-            return pagedResult.getContent();
+            return mapper.toDto(pagedResult.getContent());
         } else {
             return new ArrayList<>();
         }
     }
 
-    public Employee getEmployee(Long empNo) {
-        return employeeRepository.findByEmpNo(empNo);
+    public EmployeeDetailedDto getEmployee(Long empNo) {
+        return mapper.toDto(employeeRepository.findByEmpNo(empNo));
     }
 
     public Double getAverageSalaryPerDepartment(String deptNo) {
