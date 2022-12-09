@@ -35,7 +35,5 @@ public class EmployeeService {
         return mapper.toDto(employeeRepository.findByEmpNo(empNo));
     }
 
-    public Double getAverageSalaryPerDepartment(String deptNo) {
-        return employeeRepository.findAverageSalaryPerDepartment(deptNo);
-    }
+
 }
