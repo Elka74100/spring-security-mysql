@@ -3,15 +3,15 @@ package com.openwt.employee.web.employee.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 public class EmployeeDto {
-    private Date birthDate;
+    private LocalDate birthDate;
     private String firstName;
     private String lastName;
     private String gender;
-    private Date hireDate;
+    private LocalDate hireDate;
     private Double averageSalary;
 }

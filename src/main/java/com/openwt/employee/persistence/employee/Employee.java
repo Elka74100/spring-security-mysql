@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Formula;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -18,11 +18,11 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long empNo;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String firstName;
     private String lastName;
     private String gender;
-    private Date hireDate;
+    private LocalDate hireDate;
     @OneToMany(mappedBy = "employee")
     private List<Salary> salaries;
     @OneToMany(mappedBy = "employee")

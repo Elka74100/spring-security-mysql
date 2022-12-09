@@ -3,17 +3,17 @@ package com.openwt.employee.web.employee.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
 @Setter
 public class EmployeeDetailedDto {
-    private Date birthDate;
+    private LocalDate birthDate;
     private String firstName;
     private String lastName;
     private String gender;
-    private Date hireDate;
+    private LocalDate hireDate;
     private List<SalaryDto> salaries;
     private List<CurrentDepartmentEmployeeDto> currentDepartments;
 }

@@ -5,7 +5,7 @@ import com.openwt.employee.persistence.employee.Employee;
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -13,8 +13,8 @@ import java.util.Date;
 public class DepartmentEmployee {
     @EmbeddedId
     private DepartmentPK departmentPK;
-    private Date fromDate;
-    private Date toDate;
+    private LocalDate fromDate;
+    private LocalDate toDate;
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name="empNo", insertable=false, updatable=false)

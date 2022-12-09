@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import org.hibernate.annotations.Immutable;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Immutable
@@ -15,8 +15,8 @@ import java.util.Date;
 public class CurrentDepartmentEmployee {
     @EmbeddedId
     private DepartmentPK departmentPK;
-    private Date fromDate;
-    private Date toDate;
+    private LocalDate fromDate;
+    private LocalDate toDate;
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name="empNo", insertable=false, updatable=false)

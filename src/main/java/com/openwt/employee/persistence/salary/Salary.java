@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -16,7 +16,7 @@ public class Salary {
     @EmbeddedId
     private SalaryPK salaryPK;
     private Integer salary;
-    private Date toDate;
+    private LocalDate toDate;
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name="empNo", insertable=false, updatable=false)
