@@ -93,7 +93,17 @@ CREATE TABLE salaries (
     FOREIGN KEY (emp_no) REFERENCES employees (emp_no) ON DELETE CASCADE,
     PRIMARY KEY (emp_no, from_date)
 ) 
-; 
+;
+
+CREATE TABLE users (
+    id          INT             NOT NULL AUTO_INCREMENT,
+    email       VARCHAR(50)     NOT NULL,
+    password    VARCHAR(512)     NOT NULL,
+    active      BIT(1)          NOT NULL,
+    roles       VARCHAR(16)     NOT NULL,
+    PRIMARY KEY (id)
+)
+;
 
 CREATE OR REPLACE VIEW dept_emp_latest_date AS
     SELECT emp_no, MAX(from_date) AS from_date, MAX(to_date) AS to_date
