@@ -1,8 +1,8 @@
 package com.openwt.employee.web.user;
 
-import com.openwt.employee.persistence.user.User;
 import com.openwt.employee.service.user.UserService;
 import com.openwt.employee.web.user.dto.AuthenticationRequestDto;
+import com.openwt.employee.web.user.dto.RegistrationRequestDto;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,8 +17,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public String register(@RequestBody final User user) {
-        return userService.register(user);
+    public String register(@RequestBody final RegistrationRequestDto request) {
+        return userService.register(request);
     }
 
     @PostMapping("/authenticate")

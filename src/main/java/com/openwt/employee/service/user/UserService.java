@@ -4,6 +4,7 @@ import com.openwt.employee.config.JwtUtils;
 import com.openwt.employee.persistence.user.User;
 import com.openwt.employee.persistence.user.UserRepository;
 import com.openwt.employee.web.user.dto.AuthenticationRequestDto;
+import com.openwt.employee.web.user.dto.RegistrationRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,8 +21,8 @@ public class UserService  {
     private final JwtUtils jwtUtils;
     private final AuthenticationManager authenticationManager;
 
-    public String register(User user) {
-        return jwtUtils.generateToken(save(user));
+    public String register(RegistrationRequestDto request) {
+        return jwtUtils.generateToken(save(request));
     }
 
     public String authenticate(AuthenticationRequestDto request) {
@@ -37,8 +38,12 @@ public class UserService  {
         }
     }
 
-    private User save(User user) {
-        user.setPassword(encoder.encode(user.getPassword()));
+    private User save(RegistrationRequestDto request) {
+        User user = new User();
+        user.setEmail(request.getEmail());
+        user.setPassword(encoder.encode(request.getPassword()));
+        user.setRoles(request.getRoles());
+        user.setActive(true);
 
         return userRepository.save(user);
     }
