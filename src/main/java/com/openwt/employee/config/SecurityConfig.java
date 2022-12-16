@@ -10,6 +10,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static com.openwt.employee.config.UserPermission.*;
 
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -28,7 +29,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/auth/**")
                 .permitAll()
-                .requestMatchers("/api/employee").hasRole("ADMIN")
+                .requestMatchers("/api/employee").hasAuthority(ALL_EMPLOYEES_READ.getPermission())
+                .requestMatchers("/api/employee/**").hasAuthority(EMPLOYEE_READ.getPermission())
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

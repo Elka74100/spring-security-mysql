@@ -25,6 +25,7 @@ import static org.springframework.security.test.web.servlet.setup.SecurityMockMv
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static com.openwt.employee.config.UserRole.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -51,12 +52,12 @@ class UserControllerTest {
         final RegistrationRequestDto request = new RegistrationRequestDto();
         request.setEmail("my_email@blabla.com");
         request.setPassword("password");
-        request.setRoles("ROLE_ADMIN");
+        request.setRoles(ADMIN);
         request.setActive(true);
 
         when(userService.register(request)).thenReturn(authToken);
 
-        MvcResult result =  mvc.perform(
+        MvcResult result = mvc.perform(
                 post("/api/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request))
@@ -64,7 +65,7 @@ class UserControllerTest {
                 .andExpect(status().isOk())
                 .andReturn();
 
-        assertEquals(authToken , result.getResponse().getContentAsString());
+        assertEquals(authToken, result.getResponse().getContentAsString());
         verify(userService).register(request);
     }
 
@@ -77,7 +78,7 @@ class UserControllerTest {
 
         when(userService.authenticate(request)).thenReturn(authToken);
 
-        MvcResult result =  mvc.perform(
+        MvcResult result = mvc.perform(
                         post("/api/auth/authenticate")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request))
@@ -85,7 +86,7 @@ class UserControllerTest {
                 .andExpect(status().isOk())
                 .andReturn();
 
-        assertEquals(authToken , result.getResponse().getContentAsString());
+        assertEquals(authToken, result.getResponse().getContentAsString());
         verify(userService).authenticate(request);
     }
 

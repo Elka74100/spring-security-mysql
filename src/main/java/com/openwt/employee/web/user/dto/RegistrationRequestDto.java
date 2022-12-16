@@ -1,5 +1,6 @@
 package com.openwt.employee.web.user.dto;
 
+import com.openwt.employee.config.UserRole;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,5 +12,5 @@ public class RegistrationRequestDto {
     private String email;
     private String password;
     private boolean active;
-    private String roles;
+    private UserRole roles;
 }
