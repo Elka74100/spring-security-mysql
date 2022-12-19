@@ -1,6 +1,5 @@
 package com.openwt.employee.web.employee;
 
-import com.openwt.employee.config.UserRole;
 import com.openwt.employee.persistence.user.User;
 import com.openwt.employee.service.employee.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;
@@ -45,7 +44,7 @@ class EmployeeControllerTest {
     @Test
     void getEmployees_withNormalUser_returnsForbidden() throws Exception {
         final User user = new User();
-        user.setRoles(UserRole.USER);
+        user.setRoles("USER");
 
         mvc.perform(get("/api/employee").with(user(user)))
                 .andDo(print())
@@ -56,7 +55,7 @@ class EmployeeControllerTest {
     @Test
     void getEmployees_withAdminUser_returnsOk() throws Exception {
         final User user = new User();
-        user.setRoles(UserRole.ADMIN);
+        user.setRoles("ADMIN");
 
         mvc.perform(get("/api/employee").with(user(user)))
                 .andDo(print())

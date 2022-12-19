@@ -7,7 +7,8 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "Users")
@@ -20,12 +21,17 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private boolean active;
-    @Enumerated(EnumType.STRING)
-    private UserRole roles;
+    private String roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles.getGrantedAuthorities();
+        final Set<UserRole> userRoles = new HashSet<>();
+        final String[] rolesString = roles.split(",");
+        for(String authString : rolesString) {
+            userRoles.add(UserRole.valueOf(authString));
+        }
+
+        return userRoles.stream().flatMap(role -> role.getGrantedAuthorities().stream()).collect(Collectors.toSet());
     }
 
     @Override

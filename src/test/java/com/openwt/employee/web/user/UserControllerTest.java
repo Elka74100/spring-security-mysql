@@ -2,6 +2,7 @@ package com.openwt.employee.web.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import com.google.common.collect.Sets;
 import com.openwt.employee.service.user.UserService;
 import com.openwt.employee.web.user.dto.AuthenticationRequestDto;
 import com.openwt.employee.web.user.dto.RegistrationRequestDto;
@@ -52,7 +53,7 @@ class UserControllerTest {
         final RegistrationRequestDto request = new RegistrationRequestDto();
         request.setEmail("my_email@blabla.com");
         request.setPassword("password");
-        request.setRoles(ADMIN);
+        request.setRoles(Sets.newHashSet(ADMIN));
         request.setActive(true);
 
         when(userService.register(request)).thenReturn(authToken);

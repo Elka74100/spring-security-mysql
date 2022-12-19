@@ -5,6 +5,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -12,5 +14,5 @@ public class RegistrationRequestDto {
     private String email;
     private String password;
     private boolean active;
-    private UserRole roles;
+    private Set<UserRole> roles;
 }

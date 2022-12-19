@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
@@ -42,7 +44,7 @@ public class UserService  {
         User user = new User();
         user.setEmail(request.getEmail());
         user.setPassword(encoder.encode(request.getPassword()));
-        user.setRoles(request.getRoles());
+        user.setRoles(request.getRoles().stream().map(Object::toString).collect(Collectors.joining(",")));
         user.setActive(true);
 
         return userRepository.save(user);
