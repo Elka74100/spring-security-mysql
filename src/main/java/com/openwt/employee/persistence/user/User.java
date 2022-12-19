@@ -27,8 +27,8 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         final Set<UserRole> userRoles = new HashSet<>();
         final String[] rolesString = roles.split(",");
-        for(String authString : rolesString) {
-            userRoles.add(UserRole.valueOf(authString));
+        for(String roleString : rolesString) {
+            userRoles.add(UserRole.valueOf(roleString));
         }
 
         return userRoles.stream().flatMap(role -> role.getGrantedAuthorities().stream()).collect(Collectors.toSet());
